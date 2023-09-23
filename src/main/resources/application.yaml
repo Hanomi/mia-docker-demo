@@ -13,5 +13,7 @@ management:
         http-mapping:
           OK: 200
           DOWN: 500
+      show-details: never
+      show-components: never
 
 

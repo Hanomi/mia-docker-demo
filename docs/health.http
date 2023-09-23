@@ -1,0 +1,7 @@
+# curl -X GET --location "http://arch.homework/otusapp/vera/health"
+#    -H "Host: arch.homework"
+GET http://arch.homework/otusapp/vera/health
+Host: arch.homework
+
+###
+
