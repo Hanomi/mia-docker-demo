@@ -1,0 +1,35 @@
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vera-otus-mia-deployment
+  namespace: vera-namespace
+  labels:
+    app: vera-otus-mia
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vera-otus-mia
+  template:
+    metadata:
+      labels:
+        app: vera-otus-mia
+    spec:
+      containers:
+        - name: vera-otus-mia
+          image: hanomi/vera-otus-mia-d1:latest
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /health/liveness
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /health/readiness
+            initialDelaySeconds: 5
+            periodSeconds: 5

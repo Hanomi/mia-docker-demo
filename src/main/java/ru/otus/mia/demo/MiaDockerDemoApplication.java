@@ -1,6 +1,7 @@
 package ru.otus.mia.demo;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
