@@ -60,14 +60,15 @@ metadata:
   name: vera-ingress
   namespace: vera-namespace
   annotations:
-    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
     - host: "arch.homework"
       http:
         paths:
-          - pathType: Prefix
+          - pathType: ImplementationSpecific
             path: /otusapp/vera(/|$)(.*)
             backend:
               service:
